@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${vcpkgRoot}/x64-linux/include",
+                "/usr/include/pcl-1.12",
+                "/usr/include/eigen3",
+                "/usr/include/vtk-9.1",
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/include/pcl_tests"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

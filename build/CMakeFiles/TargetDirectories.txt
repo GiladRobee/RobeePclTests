@@ -1,0 +1,3 @@
+/home/gilad/dev_ws/pcl_tests/build/CMakeFiles/pcl_visualizer_demo.dir
+/home/gilad/dev_ws/pcl_tests/build/CMakeFiles/edit_cache.dir
+/home/gilad/dev_ws/pcl_tests/build/CMakeFiles/rebuild_cache.dir
