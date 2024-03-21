@@ -1,40 +1,54 @@
-#include "pcl_tests/pcl_viewer.hpp"
-#include "pcl_tests/pcd_loader.hpp"
 #include <thread>
 #include <iostream>
 #include <chrono>
-void printUsage (const char* progName)
-{
-  std::cout << "\n\nUsage: "<<progName<<" [options]\n\n"
-            << "Options:\n"
-            << "-------------------------------------------\n"
-            << "-h           this help\n"
-            << "-s           Simple visualisation example\n"
-            << "-r           RGB colour visualisation example\n"
-            << "-c           Custom colour visualisation example\n"
-            << "-n           Normals visualisation example\n"
-            << "-a           Shapes visualisation example\n"
-            << "-v           Viewports example\n"
-            << "-i           Interaction Customization example\n"
-            << "\n\n";
-}
+#include "pcl_tests/pcl_viewer.hpp"
+#include "pcl_tests/pcd_loader.hpp"
+#include "pcl_tests/realsense_pointcloud_stream.hpp"
+#include "pcl_tests/argparse.hpp"
 
-int main (int argc, char** argv)
+struct main_args : public argparse::Args
 {
-     // --------------------------------------
+  bool &load = flag("l,load","Load a pcd file can't be set with realsense stream").set_default(false);
+  std::string &filename = kwarg("f,filename","Filename of pcd file").set_default("Robee_tile_test_1.pcd");
+  bool &stream = flag("s,stream","Stream from realsense, can't be set with load from pcd").set_default(false);
+  bool &verbose           = flag("v,verbose", "A flag to toggle verbose").set_default(false);
+  bool &help              = flag("h,help", "Print this help message").set_default(false);
+};
+
+
+int main (int argc, char** argv)try
+{
+  // --------------------------------------
   // -----Parse Command Line Arguments-----
   // --------------------------------------
-  if (pcl::console::find_argument (argc, argv, "-h") >= 0)
-  {
-    printUsage (argv[0]);
-    return 0;
-  }
-    pcl_loader<pcl::PointXYZRGB> loader;
-    loader.setFilename("../Robee_tile_test_1.pcd");
-    loader.load();
-    auto  cloud = loader.getCloud();
+    main_args args = argparse::parse<main_args>(argc,argv);
+    if(args.verbose){
+      args.print();
+    }
+    std::cout << "starting point cloud viewer" << std::endl;
+    std::shared_ptr<pcl::PointCloud<pcl::PointXYZRGB>> cloud;
+    if(args.load && !args.stream)
+    {
+      std::cout << "loading" << std::endl;
+      pcl_loader<pcl::PointXYZRGB> loader;
+      loader.setFilename("../"+args.filename);
+      loader.load();
+      cloud = loader.getCloud();
+    }else if(args.stream && !args.load)
+    {
+      std::cout << "from stream" << std::endl;
+      realsense_pointcloud_stream stream;
+      cloud =  stream.pollFrame().depthToPc().pcToPoints().getCloud();
+    }
+    else{
+      std::cerr << "Invalid arguments" << std::endl;
+      return 1;
+    }
+    std::cout << "setting up viewer with cloud size: "<<cloud->size() << std::endl;
     PCLViewer<pcl::PointXYZRGB> viewer(3);
+    std::cout << "setting cloud" << std::endl;
     viewer.setCloud(cloud);
+    std::cout << "viewing" << std::endl;
     viewer.rgbVis();
     while (!viewer.wasStopped ())
     {
@@ -45,4 +59,14 @@ int main (int argc, char** argv)
         std::cout << "slept" << std::endl;
     }
     return 0;
+}
+catch (const rs2::error & e)
+{
+    std::cerr << "RealSense error calling " << e.get_failed_function() << "(" << e.get_failed_args() << "):\n    " << e.what() << std::endl;
+    return EXIT_FAILURE;
+}
+catch (const std::exception & e)
+{
+    std::cerr << e.what() << std::endl;
+    return EXIT_FAILURE;
 }

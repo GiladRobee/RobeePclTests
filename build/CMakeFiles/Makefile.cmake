@@ -92,6 +92,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/Findlibusb.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfigVersion.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/realsense2/realsense2Config.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/realsense2/realsense2ConfigVersion.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/realsense2/realsense2Targets-release.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/realsense2/realsense2Targets.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/vtk-9.1/FindEXPAT.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/vtk-9.1/FindEigen3.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/vtk-9.1/FindFreetype.cmake"
@@ -165,6 +169,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.22/Modules/Platform/Linux.cmake"
   "/usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake"
   "/usr/share/cmake-3.22/Modules/SelectLibraryConfigurations.cmake"
+  "/usr/share/eigen3/cmake/Eigen3Config.cmake"
+  "/usr/share/eigen3/cmake/Eigen3ConfigVersion.cmake"
+  "/usr/share/eigen3/cmake/Eigen3Targets.cmake"
   )
 
 # The corresponding makefile is:

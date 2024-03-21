@@ -208,6 +208,9 @@ EXPAT_INCLUDE_DIR:PATH=/usr/include
 //Path to a library.
 EXPAT_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libexpat.so
 
+//The directory containing a CMake configuration file for Eigen3.
+Eigen3_DIR:PATH=/usr/share/eigen3/cmake
+
 //Eigen include directory
 Eigen3_INCLUDE_DIR:PATH=/usr/include/eigen3
 
@@ -902,6 +905,9 @@ pkgcfg_lib_PKG_FONTCONFIG_fontconfig:FILEPATH=/usr/lib/x86_64-linux-gnu/libfontc
 
 //Path to a library.
 pkgcfg_lib_PKG_FONTCONFIG_freetype:FILEPATH=/usr/lib/x86_64-linux-gnu/libfreetype.so
+
+//The directory containing a CMake configuration file for realsense2.
+realsense2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/realsense2
 
 //utf8cpp include directory
 utf8cpp_INCLUDE_DIR:PATH=/usr/include/utf8cpp

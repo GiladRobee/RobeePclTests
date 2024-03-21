@@ -100,6 +100,7 @@ pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libOpenNI2.so
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libflann_cpp.so
+pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/librealsense2.so.2.54.2
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libpcl_surface.so
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so
@@ -174,6 +175,7 @@ pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.74.0
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.74.0
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.74.0
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libqhull_r.so.8.0.2
+pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/librsutils.a
 pcl_visualizer_demo: CMakeFiles/pcl_visualizer_demo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gilad/dev_ws/pcl_tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable pcl_visualizer_demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pcl_visualizer_demo.dir/link.txt --verbose=$(VERBOSE)
