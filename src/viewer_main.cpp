@@ -30,7 +30,7 @@ int main (int argc, char** argv)
     return 0;
   }
     pcl_loader<pcl::PointXYZRGB> loader;
-    loader.setFilename("/home/gilad/dev_ws/pcl_tests/Robee_tile_test_1.pcd");
+    loader.setFilename("../Robee_tile_test_1.pcd");
     loader.load();
     auto  cloud = loader.getCloud();
     PCLViewer<pcl::PointXYZRGB> viewer(3);
