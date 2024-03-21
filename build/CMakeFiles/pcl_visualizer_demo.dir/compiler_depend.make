@@ -1845,11 +1845,234 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
   /usr/include/librealsense2/hpp/rs_sensor.hpp \
   /usr/include/librealsense2/hpp/rs_pipeline.hpp \
   /usr/include/librealsense2/hpp/rs_context.hpp \
+  /usr/include/opencv4/opencv2/opencv.hpp \
+  /usr/include/opencv4/opencv2/opencv_modules.hpp \
+  /usr/include/opencv4/opencv2/core.hpp \
+  /usr/include/opencv4/opencv2/core/cvdef.h \
+  /usr/include/opencv4/opencv2/core/version.hpp \
+  /usr/include/opencv4/opencv2/core/hal/interface.h \
+  /usr/include/opencv4/opencv2/core/cv_cpu_dispatch.h \
+  /usr/include/opencv4/opencv2/core/base.hpp \
+  /usr/include/opencv4/opencv2/core/cvstd.hpp \
+  /usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
+  /usr/include/opencv4/opencv2/core/neon_utils.hpp \
+  /usr/include/opencv4/opencv2/core/vsx_utils.hpp \
+  /usr/include/opencv4/opencv2/core/check.hpp \
+  /usr/include/opencv4/opencv2/core/traits.hpp \
+  /usr/include/opencv4/opencv2/core/matx.hpp \
+  /usr/include/opencv4/opencv2/core/saturate.hpp \
+  /usr/include/opencv4/opencv2/core/fast_math.hpp \
+  /usr/include/opencv4/opencv2/core/types.hpp \
+  /usr/include/c++/11/cfloat \
+  /usr/include/opencv4/opencv2/core/mat.hpp \
+  /usr/include/opencv4/opencv2/core/bufferpool.hpp \
+  /usr/include/opencv4/opencv2/core/mat.inl.hpp \
+  /usr/include/opencv4/opencv2/core/persistence.hpp \
+  /usr/include/opencv4/opencv2/core/operations.hpp \
+  /usr/include/opencv4/opencv2/core/cvstd.inl.hpp \
+  /usr/include/opencv4/opencv2/core/utility.hpp \
+  /usr/include/c++/11/mutex \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/bits/unique_lock.h \
+  /usr/include/opencv4/opencv2/core/optim.hpp \
+  /usr/include/opencv4/opencv2/core/ovx.hpp \
+  /usr/include/opencv4/opencv2/core/cvdef.h \
+  /usr/include/opencv4/opencv2/calib3d.hpp \
+  /usr/include/opencv4/opencv2/features2d.hpp \
+  /usr/include/opencv4/opencv2/flann/miniflann.hpp \
+  /usr/include/opencv4/opencv2/flann/defines.h \
+  /usr/include/opencv4/opencv2/flann/config.h \
+  /usr/include/opencv4/opencv2/core/affine.hpp \
+  /usr/include/opencv4/opencv2/dnn.hpp \
+  /usr/include/opencv4/opencv2/dnn/dnn.hpp \
+  /usr/include/opencv4/opencv2/core/async.hpp \
+  /usr/include/opencv4/opencv2/dnn/version.hpp \
+  /usr/include/opencv4/opencv2/dnn/dict.hpp \
+  /usr/include/opencv4/opencv2/dnn/layer.hpp \
+  /usr/include/opencv4/opencv2/dnn/dnn.inl.hpp \
+  /usr/include/opencv4/opencv2/dnn/utils/inference_engine.hpp \
+  /usr/include/opencv4/opencv2/dnn/dnn.hpp \
+  /usr/include/opencv4/opencv2/flann.hpp \
+  /usr/include/opencv4/opencv2/flann/flann_base.hpp \
+  /usr/include/opencv4/opencv2/flann/general.h \
+  /usr/include/opencv4/opencv2/flann/matrix.h \
+  /usr/include/opencv4/opencv2/flann/params.h \
+  /usr/include/opencv4/opencv2/flann/any.h \
+  /usr/include/opencv4/opencv2/flann/defines.h \
+  /usr/include/opencv4/opencv2/flann/saving.h \
+  /usr/include/opencv4/opencv2/flann/nn_index.h \
+  /usr/include/opencv4/opencv2/flann/result_set.h \
+  /usr/include/opencv4/opencv2/flann/all_indices.h \
+  /usr/include/opencv4/opencv2/flann/kdtree_index.h \
+  /usr/include/opencv4/opencv2/flann/dynamic_bitset.h \
+  /usr/include/opencv4/opencv2/flann/dist.h \
+  /usr/include/opencv4/opencv2/flann/heap.h \
+  /usr/include/opencv4/opencv2/flann/allocator.h \
+  /usr/include/opencv4/opencv2/flann/random.h \
+  /usr/include/opencv4/opencv2/flann/kdtree_single_index.h \
+  /usr/include/opencv4/opencv2/flann/kmeans_index.h \
+  /usr/include/opencv4/opencv2/flann/logger.h \
+  /usr/include/opencv4/opencv2/flann/composite_index.h \
+  /usr/include/opencv4/opencv2/flann/linear_index.h \
+  /usr/include/opencv4/opencv2/flann/hierarchical_clustering_index.h \
+  /usr/include/opencv4/opencv2/flann/lsh_index.h \
+  /usr/include/opencv4/opencv2/flann/lsh_table.h \
+  /usr/include/opencv4/opencv2/flann/autotuned_index.h \
+  /usr/include/opencv4/opencv2/flann/ground_truth.h \
+  /usr/include/opencv4/opencv2/flann/index_testing.h \
+  /usr/include/opencv4/opencv2/flann/timer.h \
+  /usr/include/opencv4/opencv2/flann/sampling.h \
+  /usr/include/opencv4/opencv2/highgui.hpp \
+  /usr/include/opencv4/opencv2/imgcodecs.hpp \
+  /usr/include/opencv4/opencv2/videoio.hpp \
+  /usr/include/opencv4/opencv2/imgproc.hpp \
+  /usr/include/opencv4/opencv2/imgproc/segmentation.hpp \
+  /usr/include/opencv4/opencv2/ml.hpp \
+  /usr/include/opencv4/opencv2/ml/ml.inl.hpp \
+  /usr/include/opencv4/opencv2/objdetect.hpp \
+  /usr/include/opencv4/opencv2/objdetect/detection_based_tracker.hpp \
+  /usr/include/opencv4/opencv2/objdetect/face.hpp \
+  /usr/include/opencv4/opencv2/photo.hpp \
+  /usr/include/opencv4/opencv2/stitching.hpp \
+  /usr/include/opencv4/opencv2/stitching/warpers.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/warpers.hpp \
+  /usr/include/opencv4/opencv2/core/cuda.hpp \
+  /usr/include/opencv4/opencv2/core/cuda_types.hpp \
+  /usr/include/opencv4/opencv2/core/cuda.inl.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/warpers_inl.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/warpers.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/matchers.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/motion_estimators.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/matchers.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/util.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/util_inl.hpp \
+  /usr/include/c++/11/queue \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/bits/stl_queue.h \
+  /usr/include/opencv4/opencv2/stitching/detail/camera.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/exposure_compensate.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/seam_finders.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/blenders.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/camera.hpp \
+  /usr/include/opencv4/opencv2/video.hpp \
+  /usr/include/opencv4/opencv2/video/tracking.hpp \
+  /usr/include/opencv4/opencv2/video/background_segm.hpp \
+  /usr/include/opencv4/opencv2/calib3d/calib3d.hpp \
+  /usr/include/opencv4/opencv2/highgui/highgui.hpp \
+  /usr/include/opencv4/opencv2/imgproc/imgproc.hpp \
   ../include/pcl_tests/argparse.hpp \
   /usr/include/c++/11/optional
 
 
 /usr/include/c++/11/optional:
+
+/usr/include/opencv4/opencv2/calib3d/calib3d.hpp:
+
+/usr/include/opencv4/opencv2/video/background_segm.hpp:
+
+/usr/include/opencv4/opencv2/video.hpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/blenders.hpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/exposure_compensate.hpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/camera.hpp:
+
+/usr/include/c++/11/bits/stl_queue.h:
+
+/usr/include/c++/11/bits/deque.tcc:
+
+/usr/include/c++/11/bits/stl_deque.h:
+
+/usr/include/c++/11/deque:
+
+/usr/include/c++/11/queue:
+
+/usr/include/opencv4/opencv2/stitching/detail/util_inl.hpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/util.hpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/matchers.hpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/warpers.hpp:
+
+/usr/include/opencv4/opencv2/objdetect/detection_based_tracker.hpp:
+
+/usr/include/opencv4/opencv2/ml/ml.inl.hpp:
+
+/usr/include/opencv4/opencv2/imgproc/segmentation.hpp:
+
+/usr/include/opencv4/opencv2/flann/sampling.h:
+
+/usr/include/opencv4/opencv2/flann/index_testing.h:
+
+/usr/include/opencv4/opencv2/flann/hierarchical_clustering_index.h:
+
+/usr/include/opencv4/opencv2/flann/linear_index.h:
+
+/usr/include/opencv4/opencv2/flann/kmeans_index.h:
+
+/usr/include/opencv4/opencv2/flann/heap.h:
+
+/usr/include/opencv4/opencv2/flann/dist.h:
+
+/usr/include/opencv4/opencv2/flann/kdtree_index.h:
+
+/usr/include/opencv4/opencv2/flann/all_indices.h:
+
+/usr/include/opencv4/opencv2/flann/nn_index.h:
+
+/usr/include/opencv4/opencv2/flann/saving.h:
+
+/usr/include/opencv4/opencv2/flann/any.h:
+
+/usr/include/opencv4/opencv2/flann/params.h:
+
+/usr/include/opencv4/opencv2/flann/flann_base.hpp:
+
+/usr/include/opencv4/opencv2/core/async.hpp:
+
+/usr/include/opencv4/opencv2/dnn.hpp:
+
+/usr/include/opencv4/opencv2/flann/defines.h:
+
+/usr/include/opencv4/opencv2/flann/miniflann.hpp:
+
+/usr/include/opencv4/opencv2/features2d.hpp:
+
+/usr/include/opencv4/opencv2/calib3d.hpp:
+
+/usr/include/opencv4/opencv2/core/optim.hpp:
+
+/usr/include/c++/11/bits/std_mutex.h:
+
+/usr/include/opencv4/opencv2/core/cvstd.inl.hpp:
+
+/usr/include/opencv4/opencv2/core/operations.hpp:
+
+/usr/include/opencv4/opencv2/core/persistence.hpp:
+
+/usr/include/opencv4/opencv2/core/mat.hpp:
+
+/usr/include/opencv4/opencv2/core/types.hpp:
+
+/usr/include/opencv4/opencv2/core/neon_utils.hpp:
+
+/usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp:
+
+/usr/include/opencv4/opencv2/core/cvstd.hpp:
+
+/usr/include/opencv4/opencv2/core/base.hpp:
+
+/usr/include/opencv4/opencv2/core/cvdef.h:
+
+/usr/include/opencv4/opencv2/core.hpp:
+
+/usr/include/opencv4/opencv2/opencv_modules.hpp:
+
+/usr/include/opencv4/opencv2/opencv.hpp:
 
 /usr/include/librealsense2/hpp/rs_pipeline.hpp:
 
@@ -1861,6 +2084,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/librealsense2/h/rs_config.h:
 
+/usr/include/opencv4/opencv2/core/cuda.inl.hpp:
+
 /usr/include/librealsense2/h/rs_pipeline.h:
 
 /usr/include/librealsense2/h/rs_record_playback.h:
@@ -1869,6 +2094,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/librealsense2/h/rs_option.h:
 
+/usr/include/opencv4/opencv2/core/vsx_utils.hpp:
+
 /usr/include/librealsense2/h/rs_context.h:
 
 /usr/include/librealsense2/h/rs_types.h:
@@ -1876,6 +2103,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/c++/11/math.h:
 
 ../include/pcl_tests/realsense_pointcloud_stream.hpp:
+
+/usr/include/opencv4/opencv2/core/matx.hpp:
 
 /usr/include/c++/11/codecvt:
 
@@ -1928,6 +2157,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/vtk-9.1/vtkProperty.h:
 
 /usr/include/vtk-9.1/vtkAbstractCellLinks.h:
+
+/usr/include/opencv4/opencv2/dnn/version.hpp:
 
 /usr/include/vtk-9.1/vtkCellLinks.h:
 
@@ -2031,6 +2262,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/mpl/transform.hpp:
 
+/usr/include/opencv4/opencv2/flann/dynamic_bitset.h:
+
 /usr/include/boost/mpl/sizeof.hpp:
 
 /usr/include/boost/type_traits/is_nothrow_move_assignable.hpp:
@@ -2040,6 +2273,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/variant/detail/std_hash.hpp:
 
 /usr/include/boost/functional/hash_fwd.hpp:
+
+/usr/include/opencv4/opencv2/flann/matrix.h:
 
 /usr/include/boost/variant/detail/hash_variant.hpp:
 
@@ -2074,6 +2309,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/type_traits/is_nothrow_move_constructible.hpp:
 
 /usr/include/boost/variant/recursive_wrapper_fwd.hpp:
+
+/usr/include/opencv4/opencv2/flann/general.h:
 
 /usr/include/boost/variant/detail/config.hpp:
 
@@ -2124,6 +2361,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/type_traits/has_nothrow_assign.hpp:
 
 /usr/include/boost/type_traits/type_with_alignment.hpp:
+
+/usr/include/opencv4/opencv2/core/traits.hpp:
 
 /usr/include/boost/swap.hpp:
 
@@ -2199,6 +2438,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/pcl-1.12/pcl/visualization/area_picking_event.h:
 
+/usr/include/opencv4/opencv2/core/ovx.hpp:
+
 /usr/include/pcl-1.12/pcl/visualization/point_picking_event.h:
 
 /usr/include/vtk-9.1/vtkIdTypeArray.h:
@@ -2220,6 +2461,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/pcl-1.12/pcl/visualization/impl/point_cloud_color_handlers.hpp:
 
 /usr/include/vtk-9.1/vtkCommonMathModule.h:
+
+/usr/include/opencv4/opencv2/flann/config.h:
 
 /usr/include/pcl-1.12/pcl/visualization/point_cloud_color_handlers.h:
 
@@ -2309,6 +2552,10 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/pcl-1.12/pcl/TextureMesh.h:
 
+/usr/include/opencv4/opencv2/dnn/layer.hpp:
+
+/usr/include/opencv4/opencv2/dnn/dnn.hpp:
+
 /usr/include/pcl-1.12/pcl/visualization/pcl_visualizer.h:
 
 /usr/include/x86_64-linux-gnu/sys/fcntl.h:
@@ -2318,6 +2565,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/x86_64-linux-gnu/bits/mman.h:
 
 /usr/include/c++/11/pstl/glue_numeric_defs.h:
+
+/usr/include/opencv4/opencv2/core/cuda.hpp:
 
 /usr/include/c++/11/bits/stl_numeric.h:
 
@@ -2429,6 +2678,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/smart_ptr/shared_ptr.hpp:
 
+/usr/include/opencv4/opencv2/videoio.hpp:
+
 /usr/include/boost/shared_ptr.hpp:
 
 /usr/include/boost/date_time/microsec_time_clock.hpp:
@@ -2457,6 +2708,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/x86_64-linux-gnu/bits/statx-generic.h:
 
+/usr/include/opencv4/opencv2/objdetect/face.hpp:
+
 /usr/include/asm-generic/posix_types.h:
 
 /usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
@@ -2467,7 +2720,11 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/asm-generic/int-ll64.h:
 
+/usr/include/opencv4/opencv2/imgproc.hpp:
+
 /usr/include/asm-generic/types.h:
+
+/usr/include/opencv4/opencv2/flann/lsh_index.h:
 
 /usr/include/x86_64-linux-gnu/asm/types.h:
 
@@ -2524,6 +2781,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
 
 /usr/include/c++/11/bits/locale_facets_nonio.h:
+
+/usr/include/opencv4/opencv2/core/fast_math.hpp:
 
 /usr/include/c++/11/locale:
 
@@ -2655,6 +2914,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/pcl-1.12/pcl/io/file_io.h:
 
+/usr/include/c++/11/cfloat:
+
 /usr/include/boost/type_traits/is_scalar.hpp:
 
 /usr/include/boost/type_traits/is_pod.hpp:
@@ -2664,6 +2925,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/iterator/detail/enable_if.hpp:
 
 /usr/include/boost/type_traits/remove_pointer.hpp:
+
+/usr/include/opencv4/opencv2/flann/ground_truth.h:
 
 /usr/include/librealsense2/hpp/rs_types.hpp:
 
@@ -2749,6 +3012,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/eigen3/Eigen/src/Core/DenseCoeffsBase.h:
 
+/usr/include/opencv4/opencv2/flann.hpp:
+
 /usr/include/boost/mpl/void_fwd.hpp:
 
 /usr/include/vtk-9.1/vtkScalarsToColors.h:
@@ -2766,6 +3031,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/type_traits/integral_constant.hpp:
 
 /usr/include/boost/type_traits/add_reference.hpp:
+
+/usr/include/opencv4/opencv2/dnn/dict.hpp:
 
 /usr/include/boost/fusion/adapted/mpl/detail/value_at_impl.hpp:
 
@@ -2853,6 +3120,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/mpl/aux_/reverse_fold_impl.hpp:
 
+/usr/include/opencv4/opencv2/imgcodecs.hpp:
+
 /usr/include/c++/11/bits/unordered_map.h:
 
 /usr/include/boost/type_traits/is_arithmetic.hpp:
@@ -2919,6 +3188,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 ../include/pcl_tests/pcl_viewer.hpp:
 
+/usr/include/opencv4/opencv2/flann/result_set.h:
+
 /usr/include/x86_64-linux-gnu/bits/stat.h:
 
 /usr/include/boost/mpl/aux_/is_msvc_eti_arg.hpp:
@@ -2970,6 +3241,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/mpl/if.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/NoAlias.h:
+
+/usr/include/c++/11/bits/unique_lock.h:
 
 /usr/include/boost/fusion/iterator/mpl.hpp:
 
@@ -3113,15 +3386,21 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/mpl/aux_/insert_impl.hpp:
 
+/usr/include/opencv4/opencv2/flann/kdtree_single_index.h:
+
 /usr/include/eigen3/Eigen/src/Core/CoreIterators.h:
 
 /usr/include/boost/fusion/container/vector/vector_iterator.hpp:
+
+/usr/include/c++/11/mutex:
 
 /usr/include/vtk-9.1/vtkDataArrayAccessor.h:
 
 /usr/include/boost/mpl/push_back.hpp:
 
 /usr/include/boost/preprocessor/repetition/repeat.hpp:
+
+/usr/include/opencv4/opencv2/highgui.hpp:
 
 /usr/include/boost/preprocessor/repeat.hpp:
 
@@ -3199,6 +3478,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/utility/result_of.hpp:
 
+/usr/include/opencv4/opencv2/flann/random.h:
+
 /usr/include/boost/type_traits/is_union.hpp:
 
 /usr/include/boost/numeric/conversion/converter_policies.hpp:
@@ -3241,6 +3522,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/config/detail/select_compiler_config.hpp:
 
+/usr/include/opencv4/opencv2/flann/composite_index.h:
+
 /usr/include/eigen3/Eigen/src/Jacobi/Jacobi.h:
 
 /usr/include/eigen3/Eigen/src/LU/PartialPivLU.h:
@@ -3262,6 +3545,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/signals2/detail/variadic_arg_type.hpp:
 
 /usr/include/boost/mpl/aux_/size_impl.hpp:
+
+/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:
 
 /usr/include/boost/move/detail/std_ns_end.hpp:
 
@@ -3292,6 +3577,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/librealsense2/rsutil.h:
 
 /usr/include/boost/preprocessor/comparison/less_equal.hpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/warpers_inl.hpp:
 
 /usr/include/c++/11/backward/binders.h:
 
@@ -3381,6 +3668,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/c++/11/ext/numeric_traits.h:
 
+/usr/include/opencv4/opencv2/photo.hpp:
+
 /usr/include/boost/date_time/date_duration_types.hpp:
 
 /usr/include/boost/type_traits/has_plus.hpp:
@@ -3406,6 +3695,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/asm-generic/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/opencv4/opencv2/highgui/highgui.hpp:
 
 /usr/include/boost/preprocessor/list/adt.hpp:
 
@@ -3767,6 +4058,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/preprocessor/comparison/less.hpp:
 
+/usr/include/opencv4/opencv2/core/utility.hpp:
+
 /usr/include/linux/errno.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
@@ -3793,6 +4086,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/eigen3/Eigen/src/LU/FullPivLU.h:
 
+/usr/include/opencv4/opencv2/flann/timer.h:
+
 /usr/include/boost/mpl/integral_c.hpp:
 
 /usr/include/c++/11/pstl/pstl_config.h:
@@ -3800,6 +4095,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
 /usr/include/eigen3/Eigen/src/Core/Ref.h:
+
+/usr/include/opencv4/opencv2/flann/logger.h:
 
 /usr/include/boost/fusion/view/single_view/detail/prior_impl.hpp:
 
@@ -3901,6 +4198,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/config.hpp:
 
+/usr/include/opencv4/opencv2/core/bufferpool.hpp:
+
 /usr/include/boost/detail/templated_streams.hpp:
 
 /usr/include/boost/preprocessor/config/config.hpp:
@@ -3963,6 +4262,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/preprocessor/repetition/for.hpp:
 
+/usr/include/opencv4/opencv2/flann/autotuned_index.h:
+
 /usr/include/boost/type_traits/is_empty.hpp:
 
 /usr/include/boost/optional/bad_optional_access.hpp:
@@ -3990,6 +4291,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
 
 /usr/include/boost/fusion/mpl/begin.hpp:
+
+/usr/include/opencv4/opencv2/ml.hpp:
 
 /usr/include/librealsense2/hpp/rs_sensor.hpp:
 
@@ -4189,6 +4492,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/eigen3/Eigen/src/Core/BandMatrix.h:
 
+/usr/include/opencv4/opencv2/core/check.hpp:
+
 /usr/include/boost/fusion/container/set/set_fwd.hpp:
 
 /usr/include/vtk-9.1/vtkInteractorStyleRubberBandPick.h:
@@ -4245,6 +4550,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/c++/11/bits/istream.tcc:
 
+/usr/include/opencv4/opencv2/dnn/dnn.inl.hpp:
+
 /usr/include/boost/fusion/container/list/detail/empty_impl.hpp:
 
 /usr/include/boost/range/rbegin.hpp:
@@ -4268,6 +4575,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/opencv4/opencv2/dnn/utils/inference_engine.hpp:
 
 /usr/include/boost/mpl/front_fwd.hpp:
 
@@ -4300,6 +4609,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/c++/11/tr1/beta_function.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
+
+/usr/include/opencv4/opencv2/stitching/detail/motion_estimators.hpp:
 
 /usr/include/vtk-9.1/vtkDeprecation.h:
 
@@ -4399,6 +4710,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/eigen3/Eigen/src/Core/Stride.h:
 
+/usr/include/opencv4/opencv2/core/saturate.hpp:
+
 /usr/include/eigen3/Eigen/src/Core/MapBase.h:
 
 /usr/include/boost/core/swap.hpp:
@@ -4459,6 +4772,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/mpl/bind.hpp:
 
+/usr/include/opencv4/opencv2/stitching/warpers.hpp:
+
 /usr/include/boost/fusion/algorithm/iteration/for_each_fwd.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/TriangularMatrix.h:
@@ -4514,6 +4829,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/pcl-1.12/pcl/visualization/impl/pcl_visualizer.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/products/SelfadjointProduct.h:
+
+/usr/include/opencv4/opencv2/flann/lsh_table.h:
 
 /usr/include/eigen3/Eigen/src/Core/products/SelfadjointRank2Update.h:
 
@@ -4618,6 +4935,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/eigen3/Eigen/SVD:
 
 /usr/include/eigen3/Eigen/Jacobi:
+
+/usr/include/opencv4/opencv2/video/tracking.hpp:
 
 /usr/include/boost/concept/detail/has_constraints.hpp:
 
@@ -4841,6 +5160,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/mpl/aux_/arity_spec.hpp:
 
+/usr/include/opencv4/opencv2/core/affine.hpp:
+
 /usr/include/assert.h:
 
 /usr/include/boost/mpl/aux_/config/has_xxx.hpp:
@@ -4953,9 +5274,13 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/mpl/aux_/unwrap.hpp:
 
+/usr/include/opencv4/opencv2/core/hal/interface.h:
+
 /usr/include/boost/variant/detail/apply_visitor_binary.hpp:
 
 /usr/include/boost/core/addressof.hpp:
+
+/usr/include/opencv4/opencv2/core/version.hpp:
 
 /usr/include/pcl-1.12/pcl/common/copy_point.h:
 
@@ -5085,6 +5410,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/fusion/support/detail/is_native_fusion_sequence.hpp:
 
+/usr/include/opencv4/opencv2/flann/allocator.h:
+
 /usr/include/boost/preprocessor/seq/enum.hpp:
 
 /usr/include/boost/fusion/support/sequence_base.hpp:
@@ -5092,6 +5419,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/type_traits/is_destructible.hpp:
 
 /usr/include/boost/type_traits/add_rvalue_reference.hpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/seam_finders.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/PermutationMatrix.h:
 
@@ -5192,6 +5521,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/mpl/aux_/comparison_op.hpp:
 
 /usr/include/boost/fusion/adapted/mpl/detail/empty_impl.hpp:
+
+/usr/include/opencv4/opencv2/core/mat.inl.hpp:
 
 /usr/include/boost/mpl/empty.hpp:
 
@@ -5337,6 +5668,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/fusion/view/single_view/detail/begin_impl.hpp:
 
+/usr/include/opencv4/opencv2/core/cv_cpu_dispatch.h:
+
 /usr/include/boost/fusion/view/single_view/detail/end_impl.hpp:
 
 /usr/include/boost/fusion/container/list/detail/reverse_cons.hpp:
@@ -5423,6 +5756,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 
 /usr/include/boost/fusion/mpl/pop_front.hpp:
 
+/usr/include/opencv4/opencv2/objdetect.hpp:
+
 /usr/include/boost/fusion/algorithm/transformation/pop_front.hpp:
 
 /usr/include/c++/11/bits/locale_conv.h:
@@ -5434,6 +5769,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/fusion/include/for_each.hpp:
 
 /usr/include/boost/fusion/algorithm/iteration/detail/segmented_for_each.hpp:
+
+/usr/include/opencv4/opencv2/stitching.hpp:
 
 /usr/include/boost/mpl/aux_/arithmetic_op.hpp:
 
@@ -5450,6 +5787,8 @@ CMakeFiles/pcl_visualizer_demo.dir/src/viewer_main.cpp.o: ../src/viewer_main.cpp
 /usr/include/boost/mpl/vector/vector0.hpp:
 
 /usr/include/boost/fusion/support/detail/index_sequence.hpp:
+
+/usr/include/opencv4/opencv2/core/cuda_types.hpp:
 
 /usr/include/boost/fusion/container/vector/vector.hpp:
 

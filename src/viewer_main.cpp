@@ -38,7 +38,8 @@ int main (int argc, char** argv)try
     {
       std::cout << "from stream" << std::endl;
       realsense_pointcloud_stream stream;
-      cloud =  stream.pollFrame().depthToPc().pcToPoints().getCloud();
+      if(stream.isRunning())
+        cloud =  stream.pollFrame().depthToPc().pcToPoints().getCloud();
     }
     else{
       std::cerr << "Invalid arguments" << std::endl;
