@@ -16,4 +16,13 @@ make
 ```
 make 
 ./pcl_visualizer_demo 
-``
+```
+### args:
+Integrated with this module is arg parse from the terminal
+
+* -l: loads a PCD file flag
+* -f: file path for the PCD file
+* -s: use realsense stream
+* -c: use colored realsense stream
+* -h: print help
+* -v: print verbose

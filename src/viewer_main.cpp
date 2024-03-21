@@ -60,6 +60,8 @@ int main (int argc, char** argv)try
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
         std::cout << "slept" << std::endl;
     }
+
+    
     return 0;
 }
 catch (const rs2::error & e)
