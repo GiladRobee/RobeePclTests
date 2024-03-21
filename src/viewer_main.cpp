@@ -11,6 +11,7 @@ struct main_args : public argparse::Args
   bool &load = flag("l,load","Load a pcd file can't be set with realsense stream").set_default(false);
   std::string &filename = kwarg("f,filename","Filename of pcd file").set_default("Robee_tile_test_1.pcd");
   bool &stream = flag("s,stream","Stream from realsense, can't be set with load from pcd").set_default(false);
+  bool &use_color = flag("c,color","Use color in point cloud").set_default(false);
   bool &verbose           = flag("v,verbose", "A flag to toggle verbose").set_default(false);
   bool &help              = flag("h,help", "Print this help message").set_default(false);
 };
@@ -37,7 +38,7 @@ int main (int argc, char** argv)try
     }else if(args.stream && !args.load)
     {
       std::cout << "from stream" << std::endl;
-      realsense_pointcloud_stream stream;
+      realsense_pointcloud_stream stream(args.use_color);
       if(stream.isRunning())
         cloud =  stream.pollFrame().depthToPc().pcToPoints().getCloud();
     }

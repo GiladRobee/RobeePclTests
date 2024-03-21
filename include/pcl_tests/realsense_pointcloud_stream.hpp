@@ -2,6 +2,7 @@
 #define REALSENSE_POINTCLOUD_STREAM_HPP
 
 #include <iostream>
+#include <chrono>
 #include <librealsense2/rs.hpp>
 #include <pcl/point_types.h>
 #include <pcl/point_cloud.h>
@@ -13,7 +14,7 @@
 class realsense_pointcloud_stream
 {
     public:
-    realsense_pointcloud_stream()
+    realsense_pointcloud_stream(bool use_color = false) : use_color_(use_color)
     {
         cloud_ =std::make_shared<pcl::PointCloud<pcl::PointXYZRGB>>();
         // pipe_ = rs2::pipeline();
@@ -63,32 +64,43 @@ class realsense_pointcloud_stream
         std::cout << "pointcloud to points" << std::endl;
 
         auto sp = points_.get_profile().as<rs2::video_stream_profile>();
-        cloud_->width = sp.width();
-        cloud_->height = sp.height();
+        int sp_w = sp.width();
+        int sp_h = sp.height();
+        cloud_->width = sp_w;
+        cloud_->height = sp_h;
         cloud_->is_dense = false;
         cloud_->points.resize(points_.size());
         auto ptr = points_.get_vertices();
         auto color_ptr = points_.get_texture_coordinates();
-
-        std::cout << "setting pcl points" << std::endl;
+        cv::Mat mat_col = cv::Mat(cv::Size(sp_w, sp_h),CV_8UC3, (void*)color_frame_.get_data());
+        std::cout << "setting pcl points" << std::endl; 
+        std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
         for(auto& p : cloud_->points)
         {
-            if(ptr->z ){
+            if(ptr->z && (ptr->z < max_z) ){
                 p.x = ptr->x;
                 p.y = ptr->y;
                 p.z = ptr->z;
-                auto xy_raw = *color_ptr;
-                int x = std::min(sp.width() - 1, std::max(0, static_cast<int>(xy_raw.u * sp.width() + .5f)));
-                int y = std::min(sp.height() - 1, std::max(0, static_cast<int>(xy_raw.v * sp.height() + .5f)));
-                std::cout<<"computing color at "<<x<<", "<<y<<"\n";
-                cv::Mat mat_col = cv::Mat(cv::Size(sp.width(), sp.width()),CV_8UC3, (void*)color_frame_.get_data());
-                p.r = mat_col.at<cv::Vec3b>(y,x)[0];
-                p.g = mat_col.at<cv::Vec3b>(y,x)[1];
-                p.b = mat_col.at<cv::Vec3b>(y,x)[2];
+                if(use_color_){
+                    auto xy_raw = *color_ptr;
+                    int x = std::min(sp_w - 1, std::max(0, static_cast<int>(xy_raw.u * sp_w + .5f)));
+                    int y = std::min(sp_h - 1, std::max(0, static_cast<int>(xy_raw.v * sp_h + .5f)));
+                    p.r = mat_col.at<cv::Vec3b>(y,x)[0];
+                    p.g = mat_col.at<cv::Vec3b>(y,x)[1];
+                    p.b = mat_col.at<cv::Vec3b>(y,x)[2];
+                }else{
+                    p.r = 0;
+                    p.g = 255;
+                    p.b = 0;
+                }
+                
             }
             color_ptr++;
             ptr++;
         }
+        std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
+        auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "pointcloud to points took: " << milliseconds.count() << "[ms]"<< std::endl; 
         return *this;
     }
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr getCloud()
@@ -101,7 +113,7 @@ class realsense_pointcloud_stream
         return is_streaming_;
     }
     private:
-    bool is_streaming_;
+    bool is_streaming_,use_color_;
     rs2::pointcloud pc_;
     rs2::points points_;
     rs2::pipeline pipe_;
@@ -110,6 +122,7 @@ class realsense_pointcloud_stream
     rs2::frame color_frame_ ;
     rs2::config cfg;
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_;
+    const double max_z = 0.2;
 };
 
 #endif // REALSENSE_POINTCLOUD_STREAM_HPP
