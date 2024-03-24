@@ -7,10 +7,12 @@
                 "${vcpkgRoot}/x64-linux/include",
                 "/usr/include/pcl-1.12",
                 "/usr/include/eigen3",
+                "/home/gilad/gilad_klos/CppBenchmark/",
                 "/usr/include/vtk-9.1",
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/include/pcl_tests",
-                "/usr/include/opencv4"
+                "/usr/include/opencv4",
+                "/home/gilad/gilad_klos/CppBenchmark/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

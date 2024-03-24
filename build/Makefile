@@ -129,6 +129,80 @@ pcl_visualizer_demo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcl_visualizer_demo.dir/build.make CMakeFiles/pcl_visualizer_demo.dir/build
 .PHONY : pcl_visualizer_demo/fast
 
+#=============================================================================
+# Target rules for targets named pcl_benchmark
+
+# Build rule for target.
+pcl_benchmark: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pcl_benchmark
+.PHONY : pcl_benchmark
+
+# fast build rule for target.
+pcl_benchmark/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcl_benchmark.dir/build.make CMakeFiles/pcl_benchmark.dir/build
+.PHONY : pcl_benchmark/fast
+
+#=============================================================================
+# Target rules for targets named pcl_algorithm
+
+# Build rule for target.
+pcl_algorithm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pcl_algorithm
+.PHONY : pcl_algorithm
+
+# fast build rule for target.
+pcl_algorithm/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcl_algorithm.dir/build.make CMakeFiles/pcl_algorithm.dir/build
+.PHONY : pcl_algorithm/fast
+
+src/pcl_algo_main.o: src/pcl_algo_main.cpp.o
+.PHONY : src/pcl_algo_main.o
+
+# target to build an object file
+src/pcl_algo_main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcl_algorithm.dir/build.make CMakeFiles/pcl_algorithm.dir/src/pcl_algo_main.cpp.o
+.PHONY : src/pcl_algo_main.cpp.o
+
+src/pcl_algo_main.i: src/pcl_algo_main.cpp.i
+.PHONY : src/pcl_algo_main.i
+
+# target to preprocess a source file
+src/pcl_algo_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcl_algorithm.dir/build.make CMakeFiles/pcl_algorithm.dir/src/pcl_algo_main.cpp.i
+.PHONY : src/pcl_algo_main.cpp.i
+
+src/pcl_algo_main.s: src/pcl_algo_main.cpp.s
+.PHONY : src/pcl_algo_main.s
+
+# target to generate assembly for a file
+src/pcl_algo_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcl_algorithm.dir/build.make CMakeFiles/pcl_algorithm.dir/src/pcl_algo_main.cpp.s
+.PHONY : src/pcl_algo_main.cpp.s
+
+src/pcl_benchmark.o: src/pcl_benchmark.cpp.o
+.PHONY : src/pcl_benchmark.o
+
+# target to build an object file
+src/pcl_benchmark.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcl_benchmark.dir/build.make CMakeFiles/pcl_benchmark.dir/src/pcl_benchmark.cpp.o
+.PHONY : src/pcl_benchmark.cpp.o
+
+src/pcl_benchmark.i: src/pcl_benchmark.cpp.i
+.PHONY : src/pcl_benchmark.i
+
+# target to preprocess a source file
+src/pcl_benchmark.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcl_benchmark.dir/build.make CMakeFiles/pcl_benchmark.dir/src/pcl_benchmark.cpp.i
+.PHONY : src/pcl_benchmark.cpp.i
+
+src/pcl_benchmark.s: src/pcl_benchmark.cpp.s
+.PHONY : src/pcl_benchmark.s
+
+# target to generate assembly for a file
+src/pcl_benchmark.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcl_benchmark.dir/build.make CMakeFiles/pcl_benchmark.dir/src/pcl_benchmark.cpp.s
+.PHONY : src/pcl_benchmark.cpp.s
+
 src/viewer_main.o: src/viewer_main.cpp.o
 .PHONY : src/viewer_main.o
 
@@ -161,7 +235,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... pcl_algorithm"
+	@echo "... pcl_benchmark"
 	@echo "... pcl_visualizer_demo"
+	@echo "... src/pcl_algo_main.o"
+	@echo "... src/pcl_algo_main.i"
+	@echo "... src/pcl_algo_main.s"
+	@echo "... src/pcl_benchmark.o"
+	@echo "... src/pcl_benchmark.i"
+	@echo "... src/pcl_benchmark.s"
 	@echo "... src/viewer_main.o"
 	@echo "... src/viewer_main.i"
 	@echo "... src/viewer_main.s"

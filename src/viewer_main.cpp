@@ -5,7 +5,17 @@
 #include "pcl_tests/pcd_loader.hpp"
 #include "pcl_tests/realsense_pointcloud_stream.hpp"
 #include "pcl_tests/argparse.hpp"
+const std::string currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+    // for more information about date/time format
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
 
+    return buf;
+}
 struct main_args : public argparse::Args
 {
   bool &load = flag("l,load","Load a pcd file can't be set with realsense stream").set_default(false);
@@ -39,8 +49,14 @@ int main (int argc, char** argv)try
     {
       std::cout << "from stream" << std::endl;
       realsense_pointcloud_stream stream(args.use_color);
-      if(stream.isRunning())
+      if(stream.isRunning()){
         cloud =  stream.pollFrame().depthToPc().pcToPoints().getCloud();
+      }else{
+        std::cerr << "Stream not running" << std::endl;
+        return 1;
+      }     
+      
+      pcl::io::savePCDFileASCII ("../"+currentDateTime()+".pcd", *cloud);
     }
     else{
       std::cerr << "Invalid arguments" << std::endl;

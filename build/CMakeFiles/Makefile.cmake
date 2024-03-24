@@ -192,4 +192,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/pcl_visualizer_demo.dir/DependInfo.cmake"
+  "CMakeFiles/pcl_benchmark.dir/DependInfo.cmake"
+  "CMakeFiles/pcl_algorithm.dir/DependInfo.cmake"
   )

@@ -29,8 +29,7 @@ bool load()
     }
     std::cout << "Loaded "
                 << cloud_->width * cloud_->height
-                << " data points from "<< filename_<<"  with the following fields: "
-                << std::endl;
+                << " data points from "<< filename_<<"  " << std::endl;
     return true;
 }
 typename pcl::PointCloud<PointT>::Ptr getCloud()
