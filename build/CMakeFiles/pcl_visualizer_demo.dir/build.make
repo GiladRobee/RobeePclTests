@@ -230,6 +230,7 @@ pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.5.4d
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.5.4d
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.5.4d
 pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/librsutils.a
+pcl_visualizer_demo: /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1
 pcl_visualizer_demo: CMakeFiles/pcl_visualizer_demo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gilad/dev_ws/pcl_tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable pcl_visualizer_demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pcl_visualizer_demo.dir/link.txt --verbose=$(VERBOSE)

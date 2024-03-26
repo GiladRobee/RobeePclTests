@@ -10,7 +10,7 @@ class pcl_BM
         algo_ = std::make_shared<pcl_algo>();
         for(int i = 1; i < 11; i++)
         {
-            loader.setFilename("../Robee_tile_test_"+std::to_string(i)+".pcd");
+            loader.setFilename("../pcd_files/Robee_tile_test_"+std::to_string(i)+".pcd");
             loader.load();
             cloud_v_.push_back(loader.getCloud());
         }

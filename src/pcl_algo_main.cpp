@@ -1,28 +1,53 @@
-#include <iostream>
+#include <pcl_tests/commons.hpp>
 #include "pcl_tests/pcl_algo.hpp"
 #include "pcl_tests/pcd_loader.hpp"
 #include <pcl_tests/pcl_viewer.hpp>
 #include <pcl_tests/argparse.hpp>
-#include <pcl/io/pcd_io.h>
-#define Debug(x) std::cout << "debug: " << x << std::endl;
-enum output_cloud{
-filtered_cloud,
-};
+#include <pcl_tests/realsense_pointcloud_stream.hpp>
+
+
 
 struct main_args : public argparse::Args
 {
-    output_cloud &filter            = kwarg("f,filter","show filtered point cloud");
+    output_cloud &filter            = kwarg("f,filter","show filtered point cloud").set_default(output_cloud::lines);
     bool &help              = flag("h,help", "Print this help message").set_default(false);
     bool &verbose           = flag("v,verbose", "A flag to toggle verbose").set_default(false);
+    bool &load              = flag("l,load","Load a pcd file").set_default(true);
+    std::string &filename   = kwarg("p,path","path of pcd file").set_default("2024-03-25.11:25:29.pcd");
+    bool &stream            = flag("s,stream","Stream from realsense").set_default(false);
+    bool &use_color         = flag("c,color","Use color in point cloud").set_default(false);
+    bool &save_cloud        = flag("sc,save_cloud","Save the cloud to a pcd file").set_default(false);
+    int &debug            = kwarg("d,debug","Debug mode").set_default(spdlog::level::info);
 };
 
-int main()
+int main(int argc, char** argv)
 {
+    //-- parse command line arguments
+    main_args args = argparse::parse<main_args>(argc,argv);
+    if(args.verbose){
+      args.print();
+    }
+    spdlog::set_level(static_cast<spdlog::level::level_enum>(args.debug));
+    spdlog::set_pattern("[%H:%M:%S %z] [%^%L%$] [thread %t] %v");
+    spdlog::info("starting point cloud viewer, with log level: {}",spdlog::level::to_string_view(spdlog::get_level()));
+    cloud_t::Ptr loaded_cloud;
     pcl_algo algo;
-    pcl_loader<pcl::PointXYZRGB> loader;
-    loader.setFilename("../2024-03-24.16:54:39.pcd");
-    loader.load();
-    auto loaded_cloud = loader.getCloud();
+    if(args.load && !args.stream)
+    {
+        pcl_loader<pcl::PointXYZRGB> loader;
+        loader.setFilename("../pcd_files/"+args.filename);
+        loader.load();
+         loaded_cloud = loader.getCloud();
+        algo.setCloud(loaded_cloud);
+    }else{
+        realsense_pointcloud_stream stream(args.use_color);
+        if(stream.isRunning()){
+         loaded_cloud =  stream.pollFrame().depthToPc().pcToPoints().getCloud();
+        }else{
+            std::cerr << "Stream not running" << std::endl;
+            return 1;
+        }
+    }
     algo.setCloud(loaded_cloud);
     algo.filter_p();
     auto filtered_cloud = algo.getFilteredCloud();
@@ -40,18 +65,20 @@ int main()
     auto lines_coefs = algo.getLineCoefficients();
     //-----------------------------------output-----------------------------------//
     
-    PCLViewer<point_t> viewer(0.05);
+    PCLViewer viewer(0.05);
     // viewer.setCloud(filtered_cloud);
     viewer.setCloud(loaded_cloud);
-    // viewer.setCloud(filtered_cloud);
-    // viewer.setCloud(cluster_0);
-    // viewer.setCloud(hull);
+    viewer.setCloud(filtered_cloud);
+    viewer.setCloud(cluster_0);
+    viewer.setCloud(hull);
     // viewer.setCloud(filtered_camera_edges_cloud);
     // viewer.setCloud(lines[0]);
     // viewer.setCloud(lines[1]);
 
-    viewer.drawLines(lines_coefs);
+    // viewer.drawLines(lines_coefs);
     viewer.rgbVis();
+    // viewer.viewTwoClouds(filtered_cloud,hull);
+
     while (!viewer.wasStopped ())
     {
         std::cout << "spinning" << std::endl;

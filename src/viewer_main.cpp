@@ -5,17 +5,7 @@
 #include "pcl_tests/pcd_loader.hpp"
 #include "pcl_tests/realsense_pointcloud_stream.hpp"
 #include "pcl_tests/argparse.hpp"
-const std::string currentDateTime() {
-    time_t     now = time(0);
-    struct tm  tstruct;
-    char       buf[80];
-    tstruct = *localtime(&now);
-    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
-    // for more information about date/time format
-    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
 
-    return buf;
-}
 struct main_args : public argparse::Args
 {
   bool &load = flag("l,load","Load a pcd file can't be set with realsense stream").set_default(false);
@@ -42,7 +32,7 @@ int main (int argc, char** argv)try
     {
       std::cout << "loading" << std::endl;
       pcl_loader<pcl::PointXYZRGB> loader;
-      loader.setFilename("../"+args.filename);
+      loader.setFilename("../pcd_files/"+args.filename);
       loader.load();
       cloud = loader.getCloud();
     }else if(args.stream && !args.load)
@@ -56,14 +46,14 @@ int main (int argc, char** argv)try
         return 1;
       }     
       
-      pcl::io::savePCDFileASCII ("../"+currentDateTime()+".pcd", *cloud);
+      pcl::io::savePCDFileASCII ("../pcd_files/"+currentDateTime()+".pcd", *cloud);
     }
     else{
       std::cerr << "Invalid arguments" << std::endl;
       return 1;
     }
     std::cout << "setting up viewer with cloud size: "<<cloud->size() << std::endl;
-    PCLViewer<pcl::PointXYZRGB> viewer(3);
+    PCLViewer viewer(3);
     std::cout << "setting cloud" << std::endl;
     viewer.setCloud(cloud);
     std::cout << "viewing" << std::endl;

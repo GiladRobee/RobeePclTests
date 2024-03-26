@@ -1,23 +1,6 @@
 #ifndef PCL_ALGO_HPP_
 #define PCL_ALGO_HPP_
-#include <iostream>
-#include <chrono>
-#include <deque>
-#include <algorithm>
-#include <pcl/point_types.h>
-#include <pcl/point_cloud.h>
-#include <pcl/filters/passthrough.h>
-#include <pcl/filters/statistical_outlier_removal.h>
-#include <pcl/segmentation/sac_segmentation.h>
-#include <pcl/ModelCoefficients.h>
-#include <pcl/segmentation/extract_clusters.h>
-#include <pcl/sample_consensus/method_types.h>
-#include <pcl/sample_consensus/model_types.h>
-#include <pcl/filters/extract_indices.h>
-#include <pcl/surface/concave_hull.h>
-#include <pcl/surface/convex_hull.h>
-#include <pcl/filters/project_inliers.h>
-#include <pcl/filters/experimental/functor_filter.h>
+#include <pcl_tests/commons.hpp>
 
 using point_t = pcl::PointXYZRGB;
 using cloud_t = pcl::PointCloud<point_t>;
@@ -28,14 +11,15 @@ class pcl_algo
 {
     
     public:
-    pcl_algo()
-    {}
+    pcl_algo() 
+    {
+        
+    }
     pcl_algo(std::shared_ptr<cloud_t>& cloud) : cloud_(cloud)
     {}
-    std::shared_ptr<cloud_t> getCloud() const
-    {
-        return cloud_;
-    }
+
+
+
 
     void setCloud(std::shared_ptr<cloud_t>& cloud)
     {
@@ -135,7 +119,7 @@ class pcl_algo
     }
     std::deque<pcl::ModelCoefficients> getLineCoefficients() const
     {
-        std::cout << "Number of line coefficients: " << line_coefficients_.size() << std::endl;
+        spdlog::debug("Number of line coefficients: {}", line_coefficients_.size());
         return line_coefficients_;
     }
     pcl::ModelCoefficients getLineCoefficient(size_t i) const
@@ -154,6 +138,7 @@ class pcl_algo
         cloud_t filtered_cloud_stage2;
         pcl::PassThrough<point_t> pass,passX;
         pcl::StatisticalOutlierRemoval<point_t> sor;
+        //-- filter stage 1
         tick = std::chrono::system_clock::now();
         auto min_height = [this]()->double{
                 double ret =DBL_MAX;
@@ -166,7 +151,8 @@ class pcl_algo
                 return ret;
             }();
         tock = std::chrono::system_clock::now();
-        std::cout << "min height: " << min_height << " took: " << comapreTime(tick, tock) << "[ms]" << std::endl;
+        spdlog::debug("min height: {} took: {}[ms]", min_height, comapreTime(tick, tock));
+        // std::cout << "min height: " << min_height << " took: " << comapreTime(tick, tock) << "[ms]" << std::endl;
         min_height += min_height_offset; // 4cm delta
         //-- filter stage 1
         tick = std::chrono::system_clock::now();
@@ -175,7 +161,8 @@ class pcl_algo
         pass.setFilterLimits(0.001, min_height);
         pass.filter(filtered_cloud_stage1);
         tock = std::chrono::system_clock::now();
-        std::cout << "filter stage 1 took: " << comapreTime(tick, tock) << "[ms]" << std::endl;
+        spdlog::debug("filtered cloud 1 size: {} took: {}[ms]", filtered_cloud_stage1.size(), comapreTime(tick, tock));
+        // std::cout << "filter stage 1 took: " << comapreTime(tick, tock) << "[ms]" << std::endl;
 
 
         std::function<bool(const cloud_t&, pcl::index_t)> filter = [=](const cloud_t& fil_cloud,pcl::index_t i){
@@ -183,35 +170,39 @@ class pcl_algo
                     abs(atan2(fil_cloud.points[i].x,fil_cloud.points[i].z))<(camera_x_span-1*threshhold_filter_x);
         };
 
-        std::cout << "filtered cloud 1 size: " << filtered_cloud_stage1.size() << std::endl;
-        //-- filter stage 1.1
+        //-- filter stage 2
+        tick = std::chrono::system_clock::now();
         pcl::experimental::FilterFunction<point_t> filter_fun(filter);
         pcl::experimental::FunctionFilter<point_t> functor_filter(filter_fun);
         functor_filter.setInputCloud(std::make_shared<cloud_t>(filtered_cloud_stage1));
         functor_filter.filter(filtered_cloud_stage_11);
-        std::cout << "filtered cloud 11 size: " << filtered_cloud_stage_11.size() << std::endl; 
+        // std::cout << "filtered cloud 11 size: " << filtered_cloud_stage_11.size() << std::endl; 
         
         auto minmax = std:: minmax_element(filtered_cloud_stage_11.points.begin(),filtered_cloud_stage_11.points.end(),[](const point_t& p1, const point_t& p2){
             return p1.x < p2.x;
         });
-        std::cout << "min x: " << minmax.first->x << " max x: " << minmax.second->x << std::endl;
+        spdlog::debug("min x: {} max x: {}", minmax.first->x, minmax.second->x);
+        // std::cout << "min x: " << minmax.first->x << " max x: " << minmax.second->x << std::endl;
 
         passX.setInputCloud(std::make_shared<cloud_t>(filtered_cloud_stage_11));
         passX.setFilterFieldName("x");
         passX.setFilterLimits(minmax.first->x , minmax.second->x );
         passX.filter(filtered_cloud_stage_12);
-        std::cout << "filtered cloud 12 size: " << filtered_cloud_stage_12.size() << std::endl;
+        tock = std::chrono::system_clock::now();
+        spdlog::debug("filtered cloud 12 size: {} took: {}[ms]", filtered_cloud_stage_12.size(), comapreTime(tick, tock));
+        // std::cout << "filtered cloud 12 size: " << filtered_cloud_stage_12.size() << std::endl;
            
 
         //-- filter stage 2
-        tick = std::chrono::system_clock::now();
-        sor.setInputCloud(std::make_shared<cloud_t>(filtered_cloud_stage_12));
-        sor.setMeanK(50);//test correct value
-        sor.setStddevMulThresh(1.0);//test correct value
-        sor.filter(filtered_cloud_stage2);
-        tock = std::chrono::system_clock::now();
-        std::cout << "filter stage 2 took: " << comapreTime(tick, tock) << "[ms]" << std::endl;
-        filtered_cloud_ = std::make_shared<cloud_t>(filtered_cloud_stage2);
+        //! for now ignore statistic outlier removal since found edge cases where it causes errors
+        // tick = std::chrono::system_clock::now();
+        // sor.setInputCloud(std::make_shared<cloud_t>(filtered_cloud_stage_12));
+        // sor.setMeanK(50);//test correct value
+        // sor.setStddevMulThresh(1.0);//test correct value
+        // sor.filter(filtered_cloud_stage2);
+        // tock = std::chrono::system_clock::now();
+        // std::cout << "filter stage 2 took: " << comapreTime(tick, tock) << "[ms]" << std::endl;
+        filtered_cloud_ = std::make_shared<cloud_t>(filtered_cloud_stage_12);
     }
 
     void plane_segmentation()
@@ -243,7 +234,8 @@ class pcl_algo
             seg.segment (*inliers, *coefficients);
             if (inliers->indices.size () == 0)
             {
-                PCL_ERROR ("Could not estimate a planar model for the given dataset.\n");
+                // PCL_ERROR ("Could not estimate a planar model for the given dataset.\n");
+                spdlog::error("Could not estimate a planar model for the given dataset.");
                 return ;
             }
             cloud_t::Ptr cloud_p (new cloud_t);
@@ -262,15 +254,19 @@ class pcl_algo
             extract.filter (*cloud_s);
             cloud_f.swap(cloud_s);
         }
-
-        std::cout << "Number of clusters: " << clusters_.size() << std::endl;
-        std::cout << "Number of points in clusters: " << std::accumulate(
-            clusters_.begin(), clusters_.end(), 0, [](int sum, cloud_t::Ptr& c){return sum + c->points.size();}) 
-            << "\nNumber of points in filtered cloud: "<<filtered_cloud_->points.size() <<std::endl;
-        std::cout << "Plane Coefficients: " << coefficients->values[0] << " "
-            << coefficients->values[1] << " "
-            << coefficients->values[2] << " "
-            << coefficients->values[3] << "\n";
+        spdlog::debug("Number of clusters: {}", clusters_.size());
+        spdlog::debug("Number of points in clusters: {}", std::accumulate(
+            clusters_.begin(), clusters_.end(), 0, [](int sum, cloud_t::Ptr& c){return sum + c->points.size();}));
+        spdlog::debug("Plane coefficients: {} {} {} {}",
+            coefficients->values[0], coefficients->values[1], coefficients->values[2], coefficients->values[3]);
+        // std::cout << "Number of clusters: " << clusters_.size() << std::endl;
+        // std::cout << "Number of points in clusters: " << std::accumulate(
+        //     clusters_.begin(), clusters_.end(), 0, [](int sum, cloud_t::Ptr& c){return sum + c->points.size();}) 
+        //     << "\nNumber of points in filtered cloud: "<<filtered_cloud_->points.size() <<std::endl;
+        // std::cout << "Plane Coefficients: " << coefficients->values[0] << " "
+        //     << coefficients->values[1] << " "
+        //     << coefficients->values[2] << " "
+        //     << coefficients->values[3] << "\n";
         
     }
 
@@ -302,7 +298,8 @@ class pcl_algo
         hull_cloud_->insert(hull_cloud_->begin(),convex_cloud.begin(),convex_cloud.end());
         hull_cloud_->insert(hull_cloud_->end(),concave_cloud.begin(),concave_cloud.end());
 
-        std::cout << "Number of points in hull cloud: " << hull_cloud_->points.size() << std::endl;
+        // std::cout << "Number of points in hull cloud: " << hull_cloud_->points.size() << std::endl;
+        spdlog::debug("Number of points in hull cloud: {}", hull_cloud_->points.size());
         std::for_each(hull_cloud_->points.begin(), hull_cloud_->points.end(), []( point_t& p){
             p.g = 255;
             p.r = 0;
@@ -425,7 +422,7 @@ class pcl_algo
     cloud_t::Ptr edge_cut_cloud_;
     time_point_t tick;
     time_point_t tock;
-    const double min_height_offset = 0.01;
+    const double min_height_offset = 0.005;
     const double threshhold_filter_y = 0.07;
     const double threshhold_filter_x = 3*threshhold_filter_y;
     const double camera_x_span = 0.7592182;
@@ -434,7 +431,9 @@ class pcl_algo
     std::deque<cloud_t::Ptr> lines_;
     std::deque<pcl::ModelCoefficients::Ptr> plane_coefficients_;
     std::deque<pcl::ModelCoefficients> line_coefficients_;
-    std::deque<pcl::PointIndices::Ptr> plane_inliers_;  
+    std::deque<pcl::PointIndices::Ptr> plane_inliers_;
+    
+      
 };
 
 #endif //PCL_ALGO_HPP_
